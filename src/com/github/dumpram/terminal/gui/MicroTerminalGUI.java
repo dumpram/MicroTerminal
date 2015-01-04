@@ -3,7 +3,9 @@ package com.github.dumpram.terminal.gui;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
 
@@ -56,12 +58,46 @@ public class MicroTerminalGUI extends JFrame {
 
 	private void initToolBar() {
 		JToolBar toolBar = new JToolBar();
-		add(toolBar, BorderLayout.LINE_START);
+		add(toolBar, BorderLayout.PAGE_START);
 	}
 
 	private void initMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
+		JMenu fileMenu = new JMenu();
+		JMenu editMenu = new JMenu();
+		JMenu helpMenu = new JMenu();
+		JMenu optionsMenu = new JMenu();
+
+		/* File menu items */
+		JMenuItem newItem = new JMenuItem();
+		JMenuItem openItem = new JMenuItem();
+		JMenuItem disconnectItem = new JMenuItem();
+		fileMenu.add(newItem);
+		fileMenu.add(openItem);
+		fileMenu.add(disconnectItem);
+
+		/* Edit menu items */
+		JMenuItem setupItem = new JMenuItem();
+		editMenu.add(setupItem);
+
+		/* Options menu items */
+		JMenuItem fontItem = new JMenuItem();
+		JMenuItem languageItem = new JMenuItem();
+		optionsMenu.add(fontItem);
+		optionsMenu.add(languageItem);
+
+		/* Help menu items */
+		JMenuItem helpContentsItem = new JMenuItem();
+		JMenuItem aboutItem = new JMenuItem();
+		helpMenu.add(helpContentsItem);
+		helpMenu.add(aboutItem);
+
+		/* Adding menus in containers */
 		setJMenuBar(menuBar);
+		menuBar.add(fileMenu);
+		menuBar.add(editMenu);
+		menuBar.add(optionsMenu);
+		menuBar.add(helpMenu);
 	}
 
 	private void initLanguage() {
